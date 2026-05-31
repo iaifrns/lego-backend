@@ -5,6 +5,8 @@ import setRoutes from "./router/setRoutes.js";
 import partRoutes from "./router/partRoutes.js";
 import inventoryRoutes from "./router/inventoryRoutes.js";
 import inventoryPartRoutes from "./router/inventoryPartRoutes.js";
+import colorRoutes from './router/colorRoute.js'
+import themeRoutes from './router/themeRoute.js'
 import cors from "cors";
 
 config();
@@ -19,6 +21,8 @@ app.use("/sets", setRoutes);
 app.use("/parts", partRoutes);
 app.use("/inventories", inventoryRoutes);
 app.use("/inventoryPart", inventoryPartRoutes);
+app.use('/color', colorRoutes)
+app.use('/theme', themeRoutes)
 
 const port = process.env.PORT || 3000;
 
