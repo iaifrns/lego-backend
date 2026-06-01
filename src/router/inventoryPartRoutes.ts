@@ -1,10 +1,16 @@
 import e from "express";
-import { getCountInventoryParts, getInventoryQuentity } from "../controller/inventoryPartController.js";
+import {
+  getCountInventoryParts,
+  getInventoryQuentity,
+  getMostUsedParts,
+} from "../controller/inventoryPartController.js";
 
-const router = e.Router()
+const router = e.Router();
 
-router.get('/count', getCountInventoryParts)
+router.get("/count", getCountInventoryParts);
 
-router.get('/inventory_and_quentity', getInventoryQuentity)
+router.get("/inventory_and_quentity", getInventoryQuentity);
 
-export default router
+router.get("/most_used_parts", getMostUsedParts);
+
+export default router;
