@@ -17,3 +17,20 @@ export const getColorCount = async (req: Request, res: Response) => {
         })
     }
 }
+
+export const getColors = async (req: Request, res: Response) => {
+    try{
+        const colors = await Color.find({},{_id:0}).limit(10)
+
+        res.status(200).json({
+            success: true,
+            data: colors
+        })
+    }catch(e){
+        console.log(e)
+        res.status(500).json({
+            success: false,
+            error: e
+        })
+    }
+}
