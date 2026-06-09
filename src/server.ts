@@ -7,6 +7,7 @@ import inventoryRoutes from "./router/inventoryRoutes.js";
 import inventoryPartRoutes from "./router/inventoryPartRoutes.js";
 import colorRoutes from './router/colorRoute.js'
 import themeRoutes from './router/themeRoute.js'
+import promptRouter from './router/promptRouter.js'
 import cors from "cors";
 
 config();
@@ -23,6 +24,7 @@ app.use("/inventories", inventoryRoutes);
 app.use("/inventoryPart", inventoryPartRoutes);
 app.use('/color', colorRoutes)
 app.use('/theme', themeRoutes)
+app.use('/prompt', promptRouter)
 
 const port = process.env.PORT || 3000;
 
