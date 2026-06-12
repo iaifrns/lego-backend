@@ -1,0 +1,55 @@
+this is the schema of the mongodb
+
+colors {
+  id: number;
+  name: string;
+  rgb: string;
+  is_trans: boolean;
+}
+
+inventories {
+  id: number;
+  version: number;
+  set_num: string;
+}
+
+inventory_parts {
+  inventory_id: number;
+  part_num: string;
+  color_id: number;
+  quantity: number;
+  is_spare: boolean;
+}
+
+inventory_sets {
+  inventory_id: number,
+  set_num: string,
+  quantity: number
+}
+
+part_categories {
+  id: number,
+  name: string
+}
+
+parts {
+  part_num: string;
+  name: string;
+  part_cat_id: number;
+}
+
+sets {
+  set_num: string;
+  name: string;
+  year: number;
+  theme_id: number;
+  num_parts: number;
+}
+
+themes {
+  id: number;
+  name: string;
+}
+
+generate a mongodb query for this: 
+
