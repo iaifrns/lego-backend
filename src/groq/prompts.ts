@@ -1,5 +1,7 @@
 import Groq from "groq-sdk";
 import { config } from "dotenv";
+import fs from 'fs'
+import path from 'path'
 
 config();
 
@@ -17,6 +19,35 @@ export async function getGroqChatCompletion() {
       {
         role: "user",
         content: "Explain the importance of fast language models",
+      },
+    ],
+    model: "openai/gpt-oss-20b",
+  });
+}
+
+export const joinPrompt = (commande: string) => {
+
+  const filePath = path.join(process.cwd(),"src/groq","prompt.txt")
+
+  const text = fs.readFileSync(filePath)
+
+  return text + commande
+
+}
+
+export async function getGroqChatOtherCompletion(content: string) {
+  return groq.chat.completions.create({
+    messages: [
+      {
+        role: "system",
+        content: `no comments.
+        just give the direct commande without explication.
+        the result should not start with js or javascript only the mongodb pipeline and model name.
+        Result should be in json`
+      },
+      {
+        role: "user",
+        content: content,
       },
     ],
     model: "openai/gpt-oss-20b",

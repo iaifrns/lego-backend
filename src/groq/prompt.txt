@@ -51,5 +51,17 @@ themes {
   name: string;
 }
 
-generate a mongodb query for this: 
+below is the models
+const models = {
+  Set,
+  Theme,
+  Part,
+  Inventory,
+  InventoryPart,
+  InventorySet,
+  Color,
+  PartCategory,
+}
+
+generate a mongodb pipeline and the model name the for this: 
 
