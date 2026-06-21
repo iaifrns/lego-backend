@@ -42,7 +42,7 @@ export async function getGroqChatOtherCompletion(content: string) {
         role: "system",
         content: `no comments.
         just give the direct commande without explication.
-        the result should not start with js or javascript only the mongodb pipeline and model name.
+        the result should not start with js, javascript or json only the mongodb pipeline and model name.
         Result should be in json`
       },
       {

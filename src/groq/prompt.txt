@@ -51,6 +51,18 @@ themes {
   name: string;
 }
 
+Relationships:
+•	colors → inventory_parts 
+•	parts → inventory_parts 
+•	inventories → inventory_parts 
+•	sets → inventories 
+•	sets → inventory_sets 
+•	parts → part_categories 
+•	sets → themes 
+•	inventories → inventory_sets 
+
+the size of colors=135, theme=614, sets=11673, parts=25993, inventories=11681, inventory_parts=580251, part_categories=57, inventory_sets=2846
+
 below is the models
 const models = {
   Set,
@@ -62,6 +74,18 @@ const models = {
   Color,
   PartCategory,
 }
+
+for question that need to multiple collections is better to go throw the smallest to avoid going throw all the large ones.
+
+so for example going throw inventory_parts first will was too much time while is that we want to avoid.
+
+all queries to modify the dataset or delete it are not allowed.
+
+always give complite pipeline.
+
+the pipeline should respect the mongodb good practice and avoid errors.
+
+the names of the collections should be respected.
 
 generate a mongodb pipeline and the model name the for this: 
 

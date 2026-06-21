@@ -49,6 +49,9 @@ export const getCustomeQuery = async (req: Request, res: Response) => {
 
     const result = await getGroqChatOtherCompletion(prompt);
 
+    console.log(result.choices[0]?.message.content)
+    console.log("\nit ends here")
+
     const modelName: ModelName = JSON.parse(result.choices[0]?.message.content as string)?.model
     const pipeline = JSON.parse(result.choices[0]?.message.content as string)?.pipeline
 
