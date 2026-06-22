@@ -1,8 +1,8 @@
 import { type Request, type Response } from "express";
 import {
-    getGroqChatOtherCompletion,
-    joinPrompt,
-    main,
+  getGroqChatOtherCompletion,
+  joinPrompt,
+  main,
 } from "../groq/prompts.js";
 import Color from "../model/colors.js";
 import Inventory from "../model/inventories.js";
@@ -49,28 +49,58 @@ export const getCustomeQuery = async (req: Request, res: Response) => {
 
     const result = await getGroqChatOtherCompletion(prompt);
 
-    console.log(result.choices[0]?.message.content)
-    console.log("\nit ends here")
+    console.log(result.choices[0]?.message.content);
+    console.log("\nit ends here");
 
-    const modelName: ModelName = JSON.parse(result.choices[0]?.message.content as string)?.model
-    const pipeline = JSON.parse(result.choices[0]?.message.content as string)?.pipeline
+    const modelName: ModelName = JSON.parse(
+      result.choices[0]?.message.content as string,
+    )?.model;
+    const pipeline = JSON.parse(
+      result.choices[0]?.message.content as string,
+    )?.pipeline;
 
-    const Model = models[modelName]
+    const Model = models[modelName];
 
-    const response = await Model.aggregate(pipeline).limit(10)
+    const response = await Model.aggregate(pipeline).limit(10);
+    const count = await Model.aggregate(pipeline).count(modelName);
 
     res.status(200).json({
-        success: true,
-        data: response,
-        model: modelName,
-        pipeline: pipeline
-    })
-
+      success: true,
+      data: response,
+      model: modelName,
+      pipeline: pipeline,
+      count: count[0][modelName],
+    });
   } catch (e) {
     console.log(e);
     res.status(500).json({
       error: e,
       succes: false,
+    });
+  }
+};
+
+export const getSpecificData = async (req: Request, res: Response) => {
+  try {
+    const { model, pipeline, page } = req.body;
+
+    const Model = models[model as ModelName];
+
+    const skip = page == 1 ? 0 : (page - 1) * 10;
+    
+    const data = await Model.aggregate(pipeline).skip(skip).limit(10);
+    
+    console.log(skip)
+
+    res.status(200).json({
+      success: true,
+      data: data,
+    });
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({
+      success: false,
+      error: e,
     });
   }
 };
