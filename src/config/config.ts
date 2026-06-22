@@ -2,8 +2,9 @@ import mongoose from "mongoose";
 
 const connectDB = async () => {
   try {
+    const dbLink = (process.env.ENV == "DEV") ? process.env.MONGO_URI : process.env.MONGO_URI_PROD
     const conn = await mongoose.connect(
-      process.env.MONGO_URI as string
+      dbLink as string
     );
 
     console.log(
