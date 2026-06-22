@@ -1,0 +1,1 @@
+{"version":3,"file":"parts.d.ts","sourceRoot":"","sources":["../../src/model/parts.ts"],"names":[],"mappings":"AAAA,OAAO,QAAQ,EAAE,EAAU,KAAK,QAAQ,EAAE,MAAM,UAAU,CAAC;AAE3D,MAAM,WAAW,KAAM,SAAQ,QAAQ;IACrC,QAAQ,EAAE,MAAM,CAAC;IACjB,IAAI,EAAE,MAAM,CAAC;IACb,WAAW,EAAE,MAAM,CAAC;CACrB;;;;;;;;AAID,wBAAwD"}

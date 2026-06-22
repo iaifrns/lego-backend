@@ -1,0 +1,1 @@
+{"version":3,"file":"inventoryParts.js","sourceRoot":"","sources":["../../src/model/inventoryParts.ts"],"names":[],"mappings":"AAAA,OAAO,QAAQ,EAAE,EAAE,MAAM,EAAiB,MAAM,UAAU,CAAC;AAU3D,MAAM,mBAAmB,GAAG,IAAI,MAAM,CAAC,EAAE,EAAE,EAAE,UAAU,EAAE,iBAAiB,EAAE,CAAC,CAAC;AAE9E,eAAe,QAAQ,CAAC,KAAK,CAAiB,eAAe,EAAE,mBAAmB,CAAC,CAAC"}

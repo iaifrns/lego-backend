@@ -1,0 +1,1 @@
+{"version":3,"file":"inventories.js","sourceRoot":"","sources":["../../src/model/inventories.ts"],"names":[],"mappings":"AAAA,OAAO,QAAQ,EAAE,EAAE,MAAM,EAAiB,MAAM,UAAU,CAAC;AAQ3D,MAAM,eAAe,GAAG,IAAI,MAAM,CAAC,EAAE,EAAE,EAAE,UAAU,EAAE,aAAa,EAAE,CAAC,CAAC;AAEtE,eAAe,QAAQ,CAAC,KAAK,CAAe,WAAW,EAAE,eAAe,CAAC,CAAC"}
