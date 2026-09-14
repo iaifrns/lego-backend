@@ -44,7 +44,8 @@ export async function getGroqChatOtherCompletion(content: string) {
         just give the direct commande without explication.
         the result should not start with js, javascript or json only the mongodb pipeline and model name.
         Result should be in json.
-        the mongodb pipeline should always be complete and correct.`
+        the mongodb pipeline should always be complete and correct.
+        in the reseaning, the explanation should be straight to the point and concise.`
       },
       {
         role: "user",

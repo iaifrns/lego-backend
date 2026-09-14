@@ -49,7 +49,7 @@ export const getCustomeQuery = async (req: Request, res: Response) => {
 
     const result = await getGroqChatOtherCompletion(prompt);
 
-    console.log(result.choices[0]?.message.content);
+    console.log(result.choices[0]?.message.reasoning);
     console.log("\nit ends here");
 
     const modelName: ModelName = JSON.parse(
@@ -70,6 +70,7 @@ export const getCustomeQuery = async (req: Request, res: Response) => {
       model: modelName,
       pipeline: pipeline,
       count: count[0][modelName],
+      explanation: result.choices[0]?.message.reasoning,
     });
   } catch (e) {
     console.log(e);
